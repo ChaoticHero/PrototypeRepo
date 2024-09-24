@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    private int health = 100;
+    public GameManager gamemanager;
 
     [SerializeField] private Text enemyText;
     void awake()
     {
-        enemyText.text = health.ToString();
+        enemyText.text = "Enemy Health: " + gamemanager.enemyhealth;
+        gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-    private void update(int health)
+    private void Update()
     {
-        if (Input.GetKey("z"))
-        {
-            health -= 10;
-            enemyText.text = "Enemy Health: " + health;
-            enemyText.text = health.ToString();
-        }
+            enemyText.text = "Enemy Health: " + gamemanager.enemyhealth;
+
     }
 }
