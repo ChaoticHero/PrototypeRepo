@@ -26,7 +26,6 @@ public class EnemyAI : MonoBehaviour
 
     void Damage()
     {
-        Gamemanager.Playerhealth -= 20;
-        targetTime = 4.0f;
+        
     }
 }

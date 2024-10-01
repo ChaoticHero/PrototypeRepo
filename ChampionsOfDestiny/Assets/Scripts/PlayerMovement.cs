@@ -8,19 +8,23 @@ public class PlayerMovement : MonoBehaviour
     public GameManager gameManager;
     public Rigidbody Rb_;
     public GameObject[] bullets;
+    Animator m_Animator;
     int bulletType = 0;
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        m_Animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetKeyDown("z"))
         {
             //gameManager.enemyhealth -= gameManager.attackdamage;
-            
+            m_Animator.Play("Punch");
+
         }
         if (Input.GetKey("x"))
         {
@@ -45,8 +49,10 @@ public class PlayerMovement : MonoBehaviour
                 gameManager.chargevalue -= 50;
             }
         }
+
         if (Input.GetKey(KeyCode.LeftArrow))
         {
+            m_Animator.Play("Walking");
             Rb_.velocity = new Vector3(-3, 0, 0);
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -56,6 +62,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
+            m_Animator.Play("Walking");
+
             Rb_.velocity = new Vector3(3, 0, 0);
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -66,17 +74,18 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             Rb_.velocity += 5 * Vector3.up;
+            m_Animator.Play("Jumping");
             //Rb_.AddForce(0, 100, 0);
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                Rb_.transform.localScale = new Vector3(0.7f, 0.4f, 0.7f);
+                m_Animator.Play("Duck");
                 
             }
-        else if(!Input.GetKey(KeyCode.DownArrow))
-            {
-                Rb_.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-            }
+        if (Input.GetKeyDown("v"))
+                {
+                    m_Animator.Play("Sweep");
+                }
 
     }
 }
