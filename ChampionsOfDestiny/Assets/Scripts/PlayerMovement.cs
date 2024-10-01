@@ -39,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
             else if (gameManager.chargevalue >= 50)
             {
                 GameObject newBullet = Instantiate(bullets[bulletType],
-                  this.transform.position + new Vector3(2, 0, 0),
+                  this.transform.position + new Vector3(2, 2, 0),
                      this.transform.rotation) as GameObject;
 
 
@@ -49,7 +49,17 @@ public class PlayerMovement : MonoBehaviour
                 gameManager.chargevalue -= 50;
             }
         }
+        if (Input.GetKeyDown("b"))
+        {
+            if (gameManager.chargevalue <= 0)
+            {
 
+            }
+            else if (gameManager.chargevalue >= 200)
+            {
+                m_Animator.Play("ultimate");
+            }
+        }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             m_Animator.Play("Walking");
