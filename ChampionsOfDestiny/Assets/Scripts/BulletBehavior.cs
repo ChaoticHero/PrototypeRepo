@@ -15,9 +15,13 @@ public class BulletBehavior : MonoBehaviour
     {
         if (collision.gameObject.name == "Enemy")
         {
-            
+
             Destroy(this.gameObject, onscreenDelay);
             gamemanager.enemyhealth -= 5;
+        }
+        else
+        {
+            Destroy(this.gameObject, onscreenDelay);
         }
     }
 }

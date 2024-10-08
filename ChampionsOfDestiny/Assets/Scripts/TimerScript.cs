@@ -3,13 +3,14 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour
 {
-    public float TimeLeft;
+    static public float TimeLeft;
     public bool TimerOn = false;
 
     public Text TimerTxt;
    
     void Start()
     {
+        TimeLeft = 60f;
         TimerOn = true;
     }
 
