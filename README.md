@@ -6,6 +6,8 @@ Can only hurt enemy by collider from player<br />
 Ui now shows accurate info on the player and enemy<br />
 movement is now different from before<br />
 Enemy now will hurt player every 3 seconds<br />
+Fighter select screen is now functional with different characters<br />
+Timer works with endgame mechanic with it<br />
 Whats New---------- <br />
 Timer was added <br />
 added new models to the game<br />
