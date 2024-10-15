@@ -19,10 +19,15 @@ public class IDNumber : MonoBehaviour
 
     public void Character(int data)
     {
-        id += data;
+        id = data;
     }
     void Numberinfo()
     {
         int number = id;
+    }
+
+    public void Destroythis()
+    {
+         GameObject.DestroyImmediate(gameObject, true);
     }
 }

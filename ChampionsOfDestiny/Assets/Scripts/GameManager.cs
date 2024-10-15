@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TimerScript.TimeLeft <= 0f)
+        if (TimerScript.TimeLeft == 0f)
         {
             if (enemyhealth < Playerhealth)
             {
@@ -61,8 +61,10 @@ public class GameManager : MonoBehaviour
                 tie();
             }
         }
+
         if (enemyhealth <= 0)
         {
+            TimerScript.TimeLeft = 60f;
             playerwins();
             round();
             //Winningscene();
@@ -70,9 +72,11 @@ public class GameManager : MonoBehaviour
         }
         else if (Playerhealth <= 0) 
         {
+            TimerScript.TimeLeft = 60f;
             enemywins();
             round();
         }
+
         if (playerWins == 2)
         {
             Winningscene();
@@ -127,6 +131,8 @@ public class GameManager : MonoBehaviour
     public void tie()
     {
         rounds += 1;
+        EnemyWins += 1;
+        playerWins += 1;
         Playerhealth = 100;
         enemyhealth = 100;
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
