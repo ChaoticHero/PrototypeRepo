@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject roundstarting;
-    public GameObject data;
     public int enemyhealth;
     public int chargevalue;
     public int Playerhealth;

@@ -11,12 +11,12 @@ public class BulletBehavior : MonoBehaviour
     {
         gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "Enemy")
+        if (other.gameObject.name == "Enemy")
         {
 
-            Destroy(this.gameObject, onscreenDelay);
+            Destroy(this.gameObject);
             gamemanager.enemyhealth -= 5;
         }
         else

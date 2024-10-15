@@ -38,15 +38,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (gameManager.chargevalue >= 50)
             {
-                GameObject newBullet = Instantiate(bullets[bulletType],
-                  this.transform.position + new Vector3(2, 2, 0),
-                     this.transform.rotation) as GameObject;
-
-
-                Rigidbody bulletRB =
-                    newBullet.GetComponent<Rigidbody>();
-                bulletRB.velocity = new Vector3(20, 0, 0);
-                gameManager.chargevalue -= 50;
+                m_Animator.Play("FireBall");
             }
         }
         if (Input.GetKeyDown("b"))
@@ -97,5 +89,17 @@ public class PlayerMovement : MonoBehaviour
                     m_Animator.Play("Sweep");
                 }
 
+    }
+    public void FireballShoot()
+    {
+             GameObject newBullet = Instantiate(bullets[bulletType],
+               this.transform.position + new Vector3(2, 1, 0),
+                  this.transform.rotation) as GameObject;
+
+
+                Rigidbody bulletRB =
+                    newBullet.GetComponent<Rigidbody>();
+                bulletRB.velocity = new Vector3(20, 0, 0);
+                gameManager.chargevalue -= 50;
     }
 }
