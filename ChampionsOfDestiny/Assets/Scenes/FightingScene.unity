@@ -1459,7 +1459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &331528012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3453,7 +3453,7 @@ MonoBehaviour:
   gameManager: {fileID: 768223450}
   Rb_: {fileID: 715766459}
   bullets:
-  - {fileID: 218470328709618304, guid: 6c006cfe424159d45b258dfae18a8260, type: 3}
+  - {fileID: 8237466585549174917, guid: 488fe97bcd37e1d4fbd7a59c59ad516a, type: 3}
 --- !u!54 &715766459
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6637,7 +6637,7 @@ MonoBehaviour:
   gameManager: {fileID: 768223450}
   Rb_: {fileID: 1534456057}
   bullets:
-  - {fileID: 218470328709618304, guid: 6c006cfe424159d45b258dfae18a8260, type: 3}
+  - {fileID: 8237466585549174917, guid: 488fe97bcd37e1d4fbd7a59c59ad516a, type: 3}
 --- !u!54 &1534456057
 Rigidbody:
   m_ObjectHideFlags: 0
