@@ -29,6 +29,7 @@ public class TimerScript : MonoBehaviour
                 TimeLeft = 0;
                 TimerOn = false;
             }
+            TimerOn = true;
         }
     }
 
