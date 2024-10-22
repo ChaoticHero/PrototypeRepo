@@ -1,6 +1,8 @@
 # PrototypeRepo
 https://chaotichero.github.io/PrototypeRepo/ <br />
 Changes-------------<br />
+Enemy now attacks faster and with a new attack<br />
+UI has changed due to healthbar was added to replace the numbers for health.<br />
 air attack,lower kick, intro cutscene, ultamite(still in development) and damage taken<br />
 Can only hurt enemy by collider from player<br />
 Ui now shows accurate info on the player and enemy<br />
@@ -22,3 +24,9 @@ fighter select screen has been added<br />
 fighter scene was added as well<br />
 Round mechanic has been added to the game<br />
 Losing Scene has been added to the game<br />
+
+URL's For tutoriels and assets: <br />
+https://www.youtube.com/watch?v=0tDPxNB2JNs<br />
+https://www.mixamo.com/#/<br />
+https://www.turbosquid.com/3d-models/bodybuilder-man-lores-basemesh-2236600<br />
+https://assetstore.unity.com/packages/3d/environments/fighting-game-level-basic-training-stage-159610<br />
