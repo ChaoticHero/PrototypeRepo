@@ -1,6 +1,7 @@
 # PrototypeRepo
 https://chaotichero.github.io/PrototypeRepo/ <br />
 Changes-------------<br />
+Enemy now attacks faster and with a new attack<br />
 UI has changed due to healthbar was added to replace the numbers for health.<br />
 air attack,lower kick, intro cutscene, ultamite(still in development) and damage taken<br />
 Can only hurt enemy by collider from player<br />
