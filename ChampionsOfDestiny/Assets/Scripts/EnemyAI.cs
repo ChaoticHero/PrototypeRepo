@@ -6,9 +6,9 @@ public class EnemyAI : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameManager Gamemanager;
-    float targetTime = 6.0f;
+    float targetTime = 3.0f;
     Animator e_Animator;
-
+    int rand;
     void Start()
     {
         Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -23,13 +23,22 @@ public class EnemyAI : MonoBehaviour
         if (targetTime <= 0.0f)
         {
             Damage();
-            targetTime = 6.0f;
+            rand = Random.Range(1, 7);
+            targetTime = 3.0f;
         }
         
     }
 
     void Damage()
     {
-        e_Animator.Play("Punch");
+        Debug.Log("This number is" + rand);
+        if (rand >= 3)
+        {
+            e_Animator.Play("Punch");
+        }
+        else
+        {
+            e_Animator.Play("Sweep");
+        }
     }
 }

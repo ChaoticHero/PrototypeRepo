@@ -19,6 +19,7 @@ public class Enemycollider : MonoBehaviour
         if (other.GetComponent<Collider>().name == "Player")
         {
             gameManager.Playerhealth -= gameManager.attackdamage;
+            gameManager.PlayerHealthBar.fillAmount = gameManager.Playerhealth / 100f;
             player.Play("Hurt");
             Debug.Log("This should work.");
         }

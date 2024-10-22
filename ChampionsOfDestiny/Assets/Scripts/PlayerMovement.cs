@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
                 Rigidbody bulletRB =
                     newBullet.GetComponent<Rigidbody>();
-                bulletRB.velocity = new Vector3(20, 0, 0);
+                bulletRB.velocity = new Vector3(5, 0, 0);
                 gameManager.chargevalue -= 50;
     }
 }

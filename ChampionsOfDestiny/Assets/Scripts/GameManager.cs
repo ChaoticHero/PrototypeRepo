@@ -7,9 +7,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject roundstarting;
-    public int enemyhealth;
+    public float enemyhealth;
     public int chargevalue;
-    public int Playerhealth;
+    public float Playerhealth;
     public int attackdamage;
     public int rounds;
     public int playerWins;
@@ -18,16 +18,18 @@ public class GameManager : MonoBehaviour
     public float x1, y1, z1;
     public int characterid;
     public GameObject[] Playermodels;
+    public Image PlayerHealthBar;
+    public Image EnemyHealthBar;
     // Start is called before the first frame update
     void Start()
     {
         characterid = IDNumber.id;
         rounds = 1;
-        enemyhealth = 100;
-        Playerhealth = 100;
-        attackdamage = 10;    
-
-
+        enemyhealth = 100f;
+        Playerhealth = 100f;
+        attackdamage = 10;
+        PlayerHealthBar.fillAmount = Playerhealth / 100f;
+        EnemyHealthBar.fillAmount = enemyhealth / 100f;
         if (characterid == 0)
         {
             Playermodels[characterid].SetActive(true);
@@ -42,6 +44,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerHealthBar.fillAmount = Playerhealth / 100f;
+        EnemyHealthBar.fillAmount = enemyhealth / 100f;
+
         if (TimerScript.TimeLeft <= 0f)
         {
             if (enemyhealth < Playerhealth)
