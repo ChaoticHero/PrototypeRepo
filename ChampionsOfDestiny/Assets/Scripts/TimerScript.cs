@@ -4,32 +4,23 @@ using UnityEngine.UI;
 public class TimerScript : MonoBehaviour
 {
     static public float TimeLeft;
-    public bool TimerOn = false;
 
     public Text TimerTxt;
    
     void Start()
     {
         TimeLeft = 60f;
-        TimerOn = true;
     }
 
     void Update()
     {
-        if(TimerOn)
+        
+        TimeLeft -= Time.deltaTime;
+         updateTimer(TimeLeft);
+        if (TimeLeft == 0)
         {
-            if(TimeLeft > 0)
-            {
-                TimeLeft -= Time.deltaTime;
-                updateTimer(TimeLeft);
-            }
-            else
-            {
-                Debug.Log("Time is UP!");
-                TimeLeft = 0;
-                TimerOn = false;
-            }
-            TimerOn = true;
+            Debug.Log("Time is UP!");
+            TimeLeft = 0;
         }
     }
 

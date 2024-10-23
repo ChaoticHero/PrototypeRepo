@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
     }
     public void round()
     {
-        TimerScript.TimeLeft += 60f;
+        TimerScript.TimeLeft = 60f;
         roundstarting.SetActive(true);
     }
 
@@ -109,6 +109,7 @@ public class GameManager : MonoBehaviour
         playerWins += 1;
         enemyhealth = 100;
         Playerhealth = 100;
+        TimerScript.TimeLeft = 60f;
         Debug.Log("The player has " + playerWins);
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         player.transform.position = new Vector3(x, y, z);
@@ -122,6 +123,7 @@ public class GameManager : MonoBehaviour
         EnemyWins += 1;
         Playerhealth = 100;
         enemyhealth = 100;
+        TimerScript.TimeLeft = 60f;
         Debug.Log("The enemy has " + EnemyWins);
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         player.transform.position = new Vector3(x, y, z);
@@ -134,6 +136,7 @@ public class GameManager : MonoBehaviour
         rounds += 1;
         Playerhealth = 100;
         enemyhealth = 100;
+        TimerScript.TimeLeft = 60f;
         PlayerMovement player = GameObject.Find("Player").GetComponent<PlayerMovement>();
         player.transform.position = new Vector3(x, y, z);
         EnemyAI enemy = GameObject.Find("Enemy").GetComponent<EnemyAI>();
