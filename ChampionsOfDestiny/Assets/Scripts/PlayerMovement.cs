@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Rb_.velocity += 5 * Vector3.up;
+            Rb_.velocity += 7 * Vector3.up;
             m_Animator.Play("Jumping");
             //Rb_.AddForce(0, 100, 0);
         }
