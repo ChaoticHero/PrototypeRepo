@@ -10,6 +10,8 @@ movement is now different from before<br />
 Enemy now will hurt player every 3 seconds<br />
 Fighter select screen is now functional with different characters<br />
 Timer works with endgame mechanic with it<br />
+Character Select now shows you the character you will pick before the match<br />
+Enemy will now move across the scene making it harder to hit the enemy head on<br/>
 Whats New---------- <br />
 Timer was added <br />
 added new models to the game<br />
