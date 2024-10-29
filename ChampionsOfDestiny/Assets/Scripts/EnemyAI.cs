@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour
     public Vector3 targetPos;
     Vector3 newRotation = new Vector3(0, 90, 0);
     Vector3 oldRotation = new Vector3(0, -90, 0);
+    Vector3 target = new Vector3(-4.8f, 1.38f, -7.093f);
     public float speed;
     void Start()
     {
@@ -60,13 +61,13 @@ public class EnemyAI : MonoBehaviour
             targetPos = new Vector3(-4.8f, 1.38f, -7.093f);
         }
 
-        if(transform.position == targetPos)
+        if(transform.position == target)
         {
-            transform.eulerAngles = oldRotation;
+            transform.eulerAngles = newRotation;
         }
         else if(transform.position == startPos)
         {
-            transform.eulerAngles = newRotation;
+            transform.eulerAngles = oldRotation;
         }
     }
 }
