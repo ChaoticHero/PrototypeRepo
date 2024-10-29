@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject roundstarting;
+    public GameObject WinningPanel;
     public float enemyhealth;
     public int chargevalue;
     public float Playerhealth;
@@ -23,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         characterid = IDNumber.id;
         rounds = 1;
         enemyhealth = 100f;
@@ -46,38 +48,6 @@ public class GameManager : MonoBehaviour
     {
         PlayerHealthBar.fillAmount = Playerhealth / 100f;
         EnemyHealthBar.fillAmount = enemyhealth / 100f;
-
-        if (TimerScript.TimeLeft <= 0f)
-        {
-            if (enemyhealth < Playerhealth)
-            {
-                playerwins();
-                round();
-                //Winningscene();
-
-            }
-            else if (Playerhealth < enemyhealth)
-            {
-                enemywins();
-                round();
-            }
-            else if (Playerhealth == enemyhealth)
-            {
-                tie();
-            }
-        }
-        if (enemyhealth <= 0)
-        {
-            playerwins();
-            round();
-            //Winningscene();
-
-        }
-        else if (Playerhealth <= 0) 
-        {
-            enemywins();
-            round();
-        }
         if (playerWins == 2)
         {
             Winningscene();
@@ -86,12 +56,47 @@ public class GameManager : MonoBehaviour
         {
             Losingscene();
         }
+        else
+        {
+            if (TimerScript.TimeLeft <= 0f)
+            {
+                if (enemyhealth < Playerhealth)
+                {
+                    playerwins();
+                    round();
+                    //Winningscene();
+
+                }
+                else if (Playerhealth < enemyhealth)
+                {
+                    enemywins();
+                    round();
+                }
+                else if (Playerhealth == enemyhealth)
+                {
+                    tie();
+                }
+            }
+        }
+        if ((enemyhealth <= 0) && (rounds < 3))
+        {
+            playerwins();
+            round();
+            //Winningscene();
+
+        }
+        else if ((Playerhealth <= 0) && (rounds < 3)) 
+        {
+            enemywins();
+            round();
+        }
+        
     }
 
 
     void Winningscene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(3);
     }
     void Losingscene()
     {

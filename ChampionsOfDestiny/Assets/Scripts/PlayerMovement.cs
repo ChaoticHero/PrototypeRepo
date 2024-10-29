@@ -19,7 +19,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (gameManager.chargevalue > 299)
+        {
+            gameManager.chargevalue = 300;
+        }
         if (Input.GetKeyDown("z"))
         {
             //gameManager.enemyhealth -= gameManager.attackdamage;
@@ -29,6 +32,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey("x"))
         {
             gameManager.chargevalue += 1;
+            
         }
         if (Input.GetKeyDown("c"))
         {
@@ -90,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
                 }
 
     }
+
     public void FireballShoot()
     {
              GameObject newBullet = Instantiate(bullets[bulletType],

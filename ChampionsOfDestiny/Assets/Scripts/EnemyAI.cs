@@ -9,10 +9,17 @@ public class EnemyAI : MonoBehaviour
     float targetTime = 3.0f;
     Animator e_Animator;
     int rand;
+    public Rigidbody enemyrb;
+    private Vector3 startPos;
+    public Vector3 targetPos;
+    Vector3 newRotation = new Vector3(0, 90, 0);
+    Vector3 oldRotation = new Vector3(0, -90, 0);
+    public float speed;
     void Start()
     {
         Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
         e_Animator = gameObject.GetComponent<Animator>();
+        startPos = transform.position;
     }
 
 
@@ -20,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     {
         targetTime -= Time.deltaTime;
 
+        Invoke("movearound",3.0f);
         if (targetTime <= 0.0f)
         {
             Damage();
@@ -39,6 +47,26 @@ public class EnemyAI : MonoBehaviour
         else
         {
             e_Animator.Play("Sweep");
+        }
+    }
+    void movearound()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+        if (transform.position == targetPos)
+            targetPos = startPos; //If you have reached the end position, set the start position to the target so you move back and forth.
+
+        if (transform.position == startPos)
+        {
+            targetPos = new Vector3(-4.8f, 1.38f, -7.093f);
+        }
+
+        if(transform.position == targetPos)
+        {
+            transform.eulerAngles = oldRotation;
+        }
+        else if(transform.position == startPos)
+        {
+            transform.eulerAngles = newRotation;
         }
     }
 }
