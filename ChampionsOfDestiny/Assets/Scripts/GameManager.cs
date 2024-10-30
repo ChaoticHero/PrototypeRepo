@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
         attackdamage = 10;
         PlayerHealthBar.fillAmount = Playerhealth / 100f;
         EnemyHealthBar.fillAmount = enemyhealth / 100f;
+
         if (characterid == 0)
         {
             Playermodels[characterid].SetActive(true);
@@ -78,14 +79,14 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        if ((enemyhealth <= 0) && (rounds < 3))
+        if (enemyhealth <= 0)
         {
             playerwins();
             round();
             //Winningscene();
 
         }
-        else if ((Playerhealth <= 0) && (rounds < 3)) 
+        else if (Playerhealth <= 0) 
         {
             enemywins();
             round();
