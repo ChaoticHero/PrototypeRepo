@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public Image EnemyHealthBar;
     public GameObject winscreen;
     public GameObject losescreen;
+    public GameObject TimerTxt;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -113,6 +116,7 @@ public class GameManager : MonoBehaviour
     void Winningscene()
     {
         //SceneManager.LoadScene(3);
+        TimerTxt.SetActive(false);
         winscreen.SetActive(true);
         EnemyAI.move = false;
         EnemyAI.targetTime = 999.999f;
@@ -121,6 +125,7 @@ public class GameManager : MonoBehaviour
     void Losingscene()
     {
         //SceneManager.LoadScene(4);
+        TimerTxt.SetActive(false);
         losescreen.SetActive(true);
         EnemyAI.move = false;
         EnemyAI.targetTime = 999.999f;

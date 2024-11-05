@@ -3222,7 +3222,7 @@ MonoBehaviour:
   playerWins: 0
   EnemyWins: 0
   x: -3
-  y: 1.7
+  y: 1.37
   z: -6.986108
   x1: 2.72
   y1: 1.38
@@ -3236,6 +3236,7 @@ MonoBehaviour:
   EnemyHealthBar: {fileID: 1626279425}
   winscreen: {fileID: 1746659014}
   losescreen: {fileID: 1863261060}
+  TimerTxt: {fileID: 481708609}
 --- !u!4 &768223451
 Transform:
   m_ObjectHideFlags: 0
