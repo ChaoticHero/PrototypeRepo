@@ -6,9 +6,10 @@ public class EnemyAI : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameManager Gamemanager;
-    float targetTime = 3.0f;
+    static public float targetTime = 3.0f;
     Animator e_Animator;
     int rand;
+    static public int randmove;
     public Rigidbody enemyrb;
     private Vector3 startPos;
     public Vector3 targetPos;
@@ -16,6 +17,9 @@ public class EnemyAI : MonoBehaviour
     Vector3 oldRotation = new Vector3(0, -90, 0);
     Vector3 target = new Vector3(-4.8f, 1.38f, -7.093f);
     public float speed;
+    static public bool move;
+
+
     void Start()
     {
         Gamemanager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -27,12 +31,12 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         targetTime -= Time.deltaTime;
-
-        Invoke("movearound",3.0f);
+        movearound();
         if (targetTime <= 0.0f)
         {
             Damage();
             rand = Random.Range(1, 7);
+            randmove = Random.Range(0, 20);
             targetTime = 3.0f;
         }
         
@@ -40,7 +44,6 @@ public class EnemyAI : MonoBehaviour
 
     void Damage()
     {
-        Debug.Log("This number is" + rand);
         if (rand >= 3)
         {
             e_Animator.Play("Punch");
@@ -52,22 +55,43 @@ public class EnemyAI : MonoBehaviour
     }
     void movearound()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
-        if (transform.position == targetPos)
-            targetPos = startPos; //If you have reached the end position, set the start position to the target so you move back and forth.
-
-        if (transform.position == startPos)
+        if (randmove >= 12)
+            move = true;
+        else
+            move = false;
+        if (move)
         {
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+            if (transform.position == targetPos)
+            targetPos = startPos; 
+
+            if ((transform.position == startPos)&& (move))
+            {
             targetPos = new Vector3(-4.8f, 1.38f, -7.093f);
-        }
+            }
 
-        if(transform.position == target)
-        {
+            if(transform.position == target)
+            {
             transform.eulerAngles = newRotation;
-        }
-        else if(transform.position == startPos)
-        {
+            }
+            else if(transform.position == startPos)
+            {
             transform.eulerAngles = oldRotation;
+            }
+
+
         }
+        if (rand >= 3)
+        {
+            move = false;
+        }
+        else
+        {
+            move = false;
+        }
+        move = true;
+
+
+
     }
 }

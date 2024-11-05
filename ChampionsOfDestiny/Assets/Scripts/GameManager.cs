@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public GameObject[] Playermodels;
     public Image PlayerHealthBar;
     public Image EnemyHealthBar;
+    public GameObject winscreen;
+    public GameObject losescreen;
     // Start is called before the first frame update
     void Start()
     {
@@ -49,47 +51,60 @@ public class GameManager : MonoBehaviour
     {
         PlayerHealthBar.fillAmount = Playerhealth / 100f;
         EnemyHealthBar.fillAmount = enemyhealth / 100f;
-        if (playerWins == 2)
+        if (TimerScript.TimeLeft <= 0f)
         {
-            Winningscene();
-        }
-        else if (EnemyWins == 2)
-        {
-            Losingscene();
-        }
-        else
-        {
-            if (TimerScript.TimeLeft <= 0f)
+            if (enemyhealth < Playerhealth)
             {
-                if (enemyhealth < Playerhealth)
+                if (playerWins == 1)
+                {
+                   Winningscene();
+                }
+                else
                 {
                     playerwins();
                     round();
-                    //Winningscene();
-
                 }
-                else if (Playerhealth < enemyhealth)
+            }
+            else if (Playerhealth < enemyhealth)
+            {
+                if (EnemyWins == 1)
+                {
+                      Losingscene();
+                }
+                else
                 {
                     enemywins();
                     round();
                 }
-                else if (Playerhealth == enemyhealth)
-                {
-                    tie();
-                }
+            }
+            else if (Playerhealth == enemyhealth)
+            {
+                tie();
             }
         }
         if (enemyhealth <= 0)
         {
-            playerwins();
-            round();
-            //Winningscene();
-
+            if (playerWins == 1)
+            {
+                Winningscene();
+            }
+            else
+            {
+                playerwins();
+                round();
+            }
         }
         else if (Playerhealth <= 0) 
         {
-            enemywins();
-            round();
+            if (EnemyWins == 1)
+            {
+                Losingscene();
+            }
+            else
+            {
+                enemywins();
+                round();
+            }
         }
         
     }
@@ -97,11 +112,19 @@ public class GameManager : MonoBehaviour
 
     void Winningscene()
     {
-        SceneManager.LoadScene(3);
+        //SceneManager.LoadScene(3);
+        winscreen.SetActive(true);
+        EnemyAI.move = false;
+        EnemyAI.targetTime = 999.999f;
+        EnemyAI.randmove = 1;
     }
     void Losingscene()
     {
-        SceneManager.LoadScene(4);
+        //SceneManager.LoadScene(4);
+        losescreen.SetActive(true);
+        EnemyAI.move = false;
+        EnemyAI.targetTime = 999.999f;
+        EnemyAI.randmove = 1;
     }
     public void round()
     {
