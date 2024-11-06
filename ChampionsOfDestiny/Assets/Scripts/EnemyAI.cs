@@ -6,10 +6,10 @@ public class EnemyAI : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameManager Gamemanager;
-    static public float targetTime = 3.0f;
+    public float targetTime = 3.0f;
     Animator e_Animator;
     int rand;
-    static public int randmove;
+    public int randmove;
     public Rigidbody enemyrb;
     private Vector3 startPos;
     public Vector3 targetPos;
@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     Vector3 oldRotation = new Vector3(0, -90, 0);
     Vector3 target = new Vector3(-4.8f, 1.38f, -7.093f);
     public float speed;
-    static public bool move;
+    public bool move;
 
 
     void Start()

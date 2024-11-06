@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,12 +25,13 @@ public class GameManager : MonoBehaviour
     public GameObject winscreen;
     public GameObject losescreen;
     public GameObject TimerTxt;
-
+    public GameObject AI;
+    public EnemyAI enemyinfo;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyinfo = GameObject.Find("Enemy").GetComponent<EnemyAI>();
         characterid = IDNumber.id;
         rounds = 1;
         enemyhealth = 100f;
@@ -118,18 +120,16 @@ public class GameManager : MonoBehaviour
         //SceneManager.LoadScene(3);
         TimerTxt.SetActive(false);
         winscreen.SetActive(true);
-        EnemyAI.move = false;
-        EnemyAI.targetTime = 999.999f;
-        EnemyAI.randmove = 1;
+        enemyinfo.targetTime = 999.999f;
+        enemyinfo.randmove = 1;
     }
     void Losingscene()
     {
         //SceneManager.LoadScene(4);
         TimerTxt.SetActive(false);
         losescreen.SetActive(true);
-        EnemyAI.move = false;
-        EnemyAI.targetTime = 999.999f;
-        EnemyAI.randmove = 1;
+        enemyinfo.targetTime = 999.999f;
+        enemyinfo.randmove = 1;
     }
     public void round()
     {
