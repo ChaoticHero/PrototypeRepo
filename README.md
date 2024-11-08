@@ -1,6 +1,8 @@
 # PrototypeRepo
 https://chaotichero.github.io/PrototypeRepo/ <br />
 Changes-------------<br />
+Enemy now will stop from time to time to make it easier to hit him with normal attacks<br />
+New ui for fighter scene where when you win or lose it will trigger it and make it to where the game doesn't end abruptly.<br />
 Enemy now attacks faster and with a new attack<br />
 UI has changed due to healthbar was added to replace the numbers for health.<br />
 air attack,lower kick, intro cutscene, ultamite(still in development) and damage taken<br />
@@ -12,6 +14,7 @@ Fighter select screen is now functional with different characters<br />
 Timer works with endgame mechanic with it<br />
 Character Select now shows you the character you will pick before the match<br />
 Enemy will now move across the scene making it harder to hit the enemy head on<br/>
+
 Whats New---------- <br />
 Timer was added <br />
 added new models to the game<br />
