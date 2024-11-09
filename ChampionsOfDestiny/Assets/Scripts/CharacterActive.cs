@@ -41,11 +41,20 @@ public class CharacterActive : MonoBehaviour
         Characternames.text = "Orange Player";
 
     }
+    public void Wrestler()
+    {
+        Charactermodels[0].SetActive(false);
+        Charactermodels[1].SetActive(false);
+        Charactermodels[2].SetActive(false);
+        Charactermodels[3].SetActive(true);
+        Characternames.text = "Wrestler";
+    }
     public void turnoff()
     {
         Charactermodels[0].SetActive(false);
         Charactermodels[1].SetActive(false);
         Charactermodels[2].SetActive(false);
+        Charactermodels[3].SetActive(false);
         Characternames.text = " ";
     }
 }
