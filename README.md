@@ -17,6 +17,7 @@ Enemy will now move across the scene making it harder to hit the enemy head on<b
 
 Whats New---------- <br />
 Timer was added <br />
+A new character has been added called the Wrestler<br />
 added new models to the game<br />
 models have animation to them (Some are still in development)<br />
 Made a main menu<br />
