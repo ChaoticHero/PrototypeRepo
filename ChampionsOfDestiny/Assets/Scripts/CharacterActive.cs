@@ -49,12 +49,22 @@ public class CharacterActive : MonoBehaviour
         Charactermodels[3].SetActive(true);
         Characternames.text = "Wrestler";
     }
+    public void Ninja()
+    {
+        Charactermodels[0].SetActive(false);
+        Charactermodels[1].SetActive(false);
+        Charactermodels[2].SetActive(false);
+        Charactermodels[3].SetActive(false);
+        Charactermodels[4].SetActive(true);
+        Characternames.text = "Wrestler";
+    }
     public void turnoff()
     {
         Charactermodels[0].SetActive(false);
         Charactermodels[1].SetActive(false);
         Charactermodels[2].SetActive(false);
         Charactermodels[3].SetActive(false);
+        Charactermodels[4].SetActive(false);
         Characternames.text = " ";
     }
 }
