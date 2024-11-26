@@ -1,6 +1,7 @@
 # PrototypeRepo
 https://chaotichero.github.io/PrototypeRepo/ <br />
 Changes-------------<br />
+New Character: Mutant<br />
 Enemy now will stop from time to time to make it easier to hit him with normal attacks<br />
 New ui for fighter scene where when you win or lose it will trigger it and make it to where the game doesn't end abruptly.<br />
 Enemy now attacks faster and with a new attack<br />
