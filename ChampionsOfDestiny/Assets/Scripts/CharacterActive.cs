@@ -56,7 +56,7 @@ public class CharacterActive : MonoBehaviour
         Charactermodels[2].SetActive(false);
         Charactermodels[3].SetActive(false);
         Charactermodels[4].SetActive(true);
-        Characternames.text = "Wrestler";
+        Characternames.text = "Ninja";
     }
     public void turnoff()
     {
