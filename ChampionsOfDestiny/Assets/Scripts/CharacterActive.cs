@@ -58,6 +58,12 @@ public class CharacterActive : MonoBehaviour
         Charactermodels[4].SetActive(true);
         Characternames.text = "Ninja";
     }
+    public void Mutant()
+    {
+        
+        Charactermodels[5].SetActive(true);
+        Characternames.text = "Mutant";
+    }
     public void turnoff()
     {
         Charactermodels[0].SetActive(false);
@@ -65,6 +71,7 @@ public class CharacterActive : MonoBehaviour
         Charactermodels[2].SetActive(false);
         Charactermodels[3].SetActive(false);
         Charactermodels[4].SetActive(false);
+        Charactermodels[5].SetActive(false);
         Characternames.text = " ";
     }
 }
