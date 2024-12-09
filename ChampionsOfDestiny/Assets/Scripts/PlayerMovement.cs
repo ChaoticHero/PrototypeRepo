@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject[] bullets;
     Animator m_Animator;
     int bulletType = 0;
+    Vector3 newRotation = new Vector3(0, 90, 0);
+    Vector3 oldRotation = new Vector3(0, -90, 0);
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -60,9 +62,11 @@ public class PlayerMovement : MonoBehaviour
         {
             m_Animator.Play("Walking");
             Rb_.velocity = new Vector3(-3, 0, 0);
+            transform.eulerAngles = oldRotation;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Rb_.velocity += 5 * Vector3.up;
+               
                 //Rb_.AddForce(0, 100, 0);
             }
         }
@@ -71,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
             m_Animator.Play("Walking");
 
             Rb_.velocity = new Vector3(3, 0, 0);
+            transform.eulerAngles = newRotation;
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Rb_.velocity += 5 * Vector3.up;
@@ -101,10 +106,18 @@ public class PlayerMovement : MonoBehaviour
                this.transform.position + new Vector3(2, 1, 0),
                   this.transform.rotation) as GameObject;
 
-
+                
                 Rigidbody bulletRB =
                     newBullet.GetComponent<Rigidbody>();
-                bulletRB.velocity = new Vector3(5, 0, 0);
+        if (transform.eulerAngles == oldRotation)
+        {
+            bulletRB.velocity = new Vector3(-5, 0, 0);
+        }
+        else
+        {
+            bulletRB.velocity = new Vector3(5, 0, 0);
+        }
+                
                 gameManager.chargevalue -= 50;
     }
 }
